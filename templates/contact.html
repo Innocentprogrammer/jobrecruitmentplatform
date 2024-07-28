@@ -1,0 +1,25 @@
+{% include "header.html" %}
+
+<!-- ContactUs section starts  -->
+
+<section id="contact" class="contact">
+    <h1 class="heading">Contact Us</h1>
+    <div class="row">
+        <div class="image">
+            <img src="/static/contactus.jpg" alt="ContactUs">
+        </div>
+        <div class="form-container">
+            <form action="{% url 'saveform' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="name" id="name" placeholder="full name">
+                <input type="text" name="phone" placeholder="phone no." maxlength="10" required><br>
+                <input type="email" name="email" placeholder="email" required><br>
+                <textarea name="message" id="area" cols="30" rows="10" placeholder="message" required></textarea><br>
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ContactUs section ends  -->
+{% include "footer.html" %}

@@ -1,0 +1,22 @@
+{% include "header.html" %}
+
+<!-- Service section starts -->
+
+<section id="service" class="service">
+    <h1 class="heading">Our Services</h1>
+    <div class="row">
+
+        {% for n in services %}
+        <div class="content">
+            <img src="/media/{{n.service_image}}" alt="webdevelopment">
+            <h2>{{n.service_name}}</h2>
+            <p>
+                {{n.service_desc}}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Service section ends -->
+{% include "footer.html" %}

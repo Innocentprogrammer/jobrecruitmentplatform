@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen Teche</title>
+    <!-- <link rel="stylesheet" href="/static/style.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #preloader {
+            background: #fff url("/static/preload_1.gif") no-repeat center center;
+            background-size: 30%;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            z-index: 100;
+        }
+
+        .main {
+            background-image: linear-gradient(rgb(61, 41, 41), gray);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .main .content {
+            font-size: 1.25em;
+            font-weight: 300;
+            color: #333;
+            font-weight: 300;
+            padding: 1rem 2rem 2rem 2rem;
+            border: 2px solid;
+            background-color: rgb(225, 225, 221);
+            border-radius: 2rem;
+        }
+
+        .main .content h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .main .content form input[type="email"],
+        input[type="text"],
+        input[type="password"] {
+            width: auto;
+            padding: 0.3rem;
+            margin: 0.5rem 0 0.5rem 0;
+            border-radius: 0.4rem;
+        }
+
+        .main .content button {
+            height: 3rem;
+            width: 5rem;
+            background: #fff;
+            color: #444;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            margin-top: 1.2rem;
+            font-size: 1rem;
+            /* font-weight: 400px; */
+            box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .main .content button:hover {
+            color: #eda30e;
+            box-shadow: 3px 3px 3px rgb(255, 0, 0);
+            background-image: linear-gradient(to bottom right, rgb(223, 39, 39), rgb(29, 192, 29));
+        }
+
+        .header .navbar button {
+            background-color: black;
+            color: #ece9e9;
+            padding: 7px;
+            font-size: 1.3rem;
+            margin: 1rem 0 1rem 0;
+            /* border: 2px solid rgb(207, 165, 165); */
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .header .navbar button:hover {
+            color: #eda30e;
+            box-shadow: 3px 3px 3px rgb(255, 0, 0);
+        }
+
+        .header {
+            background-color: rgb(61, 41, 41);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 1rem 0 2rem 0;
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        .header .imgLogo {
+            width: 5rem;
+            border-radius: 50%;
+        }
+
+        .imgName {
+            width: 13rem;
+            height: 5rem;
+            border-radius: 20px;
+        }
+
+
+        .header .logo h1 {
+            font-size: 3rem;
+            color: #eda30e;
+            font-weight: 900;
+            padding: 0 0 0 3rem;
+        }
+
+        .header .navbar ul {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .header .navbar ul li {
+            margin: 0 1rem;
+        }
+
+        .header .navbar ul li a {
+            font-size: 1.3rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .header .navbar ul li a:hover {
+            color: #eda30e;
+            box-shadow: 3px 3px 3px rgb(255, 0, 0);
+        }
+
+        .header .fa-bars {
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: none;
+        }
+
+
+        .home {
+            min-height: 60vh;
+            width: 100%;
+
+            display: flex;
+            align-items: left;
+            justify-content: stretch;
+            flex-flow: column;
+            text-align: left;
+            padding: 5rem 0 2rem 0;
+            position: relative;
+            overflow: hidden !important;
+            text-transform: capitalize;
+            clip-path: circle(86% at 50% 1%);
+            background-image: url("/static/banner1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .home a {
+            text-decoration: none;
+        }
+
+        .home .text-img {
+            font-size: 5rem;
+            background-image: linear-gradient(cyan, wheat);
+            background-size: contain;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .home .banner {
+            margin: 0 0 0 8rem;
+            color: #fff;
+            font-size: 4rem;
+            text-shadow: 0 0.7rem 0.6rem rgba(66, 71, 7, 0.916);
+        }
+
+        .home .banner:hover {
+            letter-spacing: 0.2rem;
+        }
+
+        .home .slogan {
+            color: #eee;
+            font-size: 3rem;
+            /* font-weight: 400; */
+        }
+
+        .home .slogan {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 0 0 8rem;
+            letter-spacing: 0.05em;
+            animation: typing 5s steps(40) infinite alternate;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 65%
+            }
+        }
+
+        .home button {
+            height: 3rem;
+            width: 12rem;
+            background: #fff;
+            color: #444;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            margin: 5rem 0 0 24rem;
+            font-size: 1.5rem;
+            /* font-weight: 400px; */
+            box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .home button:hover {
+            letter-spacing: 0.2rem;
+            box-shadow: 8px 8px 8px rgb(102, 255, 0);
+        }
+
+        .home .goal {
+            font-size: 2rem;
+            padding: 1rem 0 0.5rem 0;
+            color: #fff;
+        }
+
+        .footer {
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(gray, black);
+            padding-top: 3rem;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .footer .box-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .footer .box-container .box {
+            flex: 1 1 5rem;
+            margin: 2rem;
+        }
+
+        .footer .box-container .box h3 {
+            font-size: 2.5rem;
+            padding: 1rem 0;
+            color: #fff;
+            text-decoration: underline;
+            text-underline-offset: 1rem;
+        }
+
+        .footer .box-container .box p {
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            color: #eee;
+        }
+
+        .footer .box-container .box a {
+            display: block;
+            font-size: 1.2rem;
+            padding: 0.5rem 0;
+            color: #eee;
+        }
+
+        .footer .box-container .box a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .box-container .box .info {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer .box-container .box .info i {
+            margin: 0.5rem 0;
+            margin-right: 1rem;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--pink);
+            font-size: 1.2rem;
+            height: 3rem;
+            width: 3rem;
+            line-height: 3rem;
+            text-align: center;
+        }
+
+        .footer .credit {
+            font-size: 1.2rem;
+            font-weight: normal;
+            letter-spacing: 0.1rem;
+            color: #fff;
+            border-top: 0.1rem solid #fff5;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .btn {
+            outline: none;
+            border: none;
+            border-radius: 5rem;
+            background: var(--color);
+            color: #9c2121;
+            cursor: pointer;
+            height: 3rem;
+            width: 13rem;
+            font-size: 1.7rem;
+            box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            letter-spacing: 0.1rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Pre Loader -->
+    <div id="preloader"></div>
+
+    <!-- Header Section Starts -->
+    <header class="header">
+        <div class="logo">
+            <h1>Sarika Trader</h1>
+        </div>
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong style="color: wheat; font-size:1.4rem;">Message:</strong>
+            <span style="color: wheat; font-size:1.4rem;">{{ message }}</span>
+        </div>
+        {% endfor %}
+        <div class="menu">
+
+            <div class="fas fa-bars"></div>
+
+            <nav class="navbar">
+                <ul style="list-style-type: none;">
+                    <!-- <li><a href="/home">Home</a></li>
+                    <li><a href="/home/#about">AboutUs</a></li>
+                    <li><a href="/product">Product</a></li>
+                    <li><a href="/service">Services</a></li>
+                    <li><a href="/internship">Career</a></li>
+                    <li><a href="/home/#team">Team</a></li>
+                    <li><a href="/contact">ContactUs</a></li> -->
+                    {% if user.is_authenticated %}
+                    <li> <button type="submit"><a href="/signout">SignOut</a></button></li>
+                    {% else %}
+                    <li><button type="submit"><a href="/signin">SignIn</a></button></li>
+                    <li><button type="submit"><a href="/signup">SignUp</a></button></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>

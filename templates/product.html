@@ -1,0 +1,69 @@
+{% include "header.html" %}
+<!-- Products section starts -->
+
+<section id="product" class="product">
+    <h1 class="heading">Our Products</h1>
+    <div class="row">
+        {% for n in products %}
+
+        <div class="content">
+            <img src="/media/{{n.product_image}}" alt=""
+                onmouseover="document.getElementById('Q{{n.id}}').style.display='block';">
+            <button id="Q{{n.id}}" onclick="document.getElementById('p{{n.id}}').style.display='block';"
+                onmouseover="document.getElementById('p{{n.id}}').style.display='none';">Quick View</button>
+            <h2>{{n.product_name}}</h2>
+            <p id="p{{n.id}}">
+                {{n.product_desc | safe}}
+            </p>
+        </div>
+
+        {% endfor %}
+        <!-- <div class="content">
+            <img src="./image/red.webp" alt="" onmouseover="document.getElementById('Q2').style.display='block';">
+            <button id="Q2" onclick="document.getElementById('p2').style.display='block';"
+                onmouseover="document.getElementById('p2').style.display='none';">Quick View</button>
+            <h2>Red Chilli (Lal Mirch) Powder</h2>
+            <p id="p2">
+                <b>Ingredients: </b> 100% Pure, Natural, and Organic Red Chilli (Lal Mirch) <br>
+                <b>Price: </b> 200Rs/kg
+            </p>
+        </div>
+        <div class="content">
+            <img src="./image/dhaniya.webp" alt="" onmouseover="document.getElementById('Q3').style.display='block';">
+            <button id="Q3" onclick="document.getElementById('p3').style.display='block';"
+                onmouseover="document.getElementById('p3').style.display='none';">Quick View</button>
+            <h2>Coriander (Dhaniya) Powder</h2>
+            <p id="p3">
+                <b>Ingredients: </b> 100% Pure, Natural, and Organic Coriander (Dhaniya) <br>
+                <b>Price: </b> 190Rs/kg
+            </p>
+        </div>
+        <div class="content">
+            <img src="./image/Garam.jpg" alt="cloudcomputing"
+                onmouseover="document.getElementById('Q5').style.display='block';">
+            <button id="Q5" onclick="document.getElementById('p5').style.display='block';"
+                onmouseover="document.getElementById('p5').style.display='none';">Quick View</button>
+            <h2>Garam Masala Powder</h2>
+            <p id="p5">
+                <b>Ingredients: </b> 100% Pure, Natural, and Organic ground <br>spices like cloves, cinnamon,
+                cardamoms,
+                cumin, coriander,<br> nutmeg, bay leaf, mace and black pepper <br>
+                <b>Price: </b> 100Rs/100g
+            </p>
+        </div>
+        <div class="content">
+            <img src="./image/oil.webp" alt="cloudcomputing"
+                onmouseover="document.getElementById('Q4').style.display='block';">
+            <button id="Q4" onclick="document.getElementById('p4').style.display='block';"
+                onmouseover="document.getElementById('p4').style.display='none';">Quick View</button>
+            <h2>Mustard Oil (Sarso tel)</h2>
+            <p id="p4">
+                <b>Ingredients: </b> 100% Pure, Natural, and Organic Mustard (Sarso) <br>
+                <b>Price: </b> 820Rs/5kg
+            </p>
+        </div> -->
+    </div>
+</section>
+
+<!-- Product section ends-->
+{% include "footer.html" %}

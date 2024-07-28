@@ -1,0 +1,17 @@
+{% include "Authentication/header1.html" %}
+<div class="main">
+    <div class="content">
+        <h2>Sign In</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="">User Name</label>
+            <input type="text" name="username" id="username" placeholder="Enter Your Name" required><br>
+            <label for="">Password</label>
+            <input type="password" name="password1" id="password1" placeholder="Enter Your password" required><br>
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
+</div>
+
+
+{% include "Authentication/footer1.html" %}
