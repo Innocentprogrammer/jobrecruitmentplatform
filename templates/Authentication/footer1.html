@@ -15,7 +15,7 @@
                     selection of Indian spices and seasonings and experience a taste of India like never before.
                 </p>
             </div>
-
+            {% if user.is_authenticated %}
             <div class="box">
                 <h3>Quick Links</h3>
                 <ul style="  list-style-type: none;">
@@ -28,6 +28,7 @@
                     <li><a href="/contact">ContactUs</a></li>
                 </ul>
             </div>
+            {% endif %}
 
             <div class="box">
                 <h3>Follow Us</h3>
