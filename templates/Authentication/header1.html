@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.css">
+    <script src="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -364,15 +367,18 @@
 
             <nav class="navbar">
                 <ul style="list-style-type: none;">
-                    <!-- <li><a href="/home">Home</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="/home">Home</a></li>
                     <li><a href="/home/#about">AboutUs</a></li>
                     <li><a href="/product">Product</a></li>
                     <li><a href="/service">Services</a></li>
                     <li><a href="/internship">Career</a></li>
                     <li><a href="/home/#team">Team</a></li>
-                    <li><a href="/contact">ContactUs</a></li> -->
-                    {% if user.is_authenticated %}
+                    <li><a href="/contact">ContactUs</a></li>
                     <li> <button type="submit"><a href="/signout">SignOut</a></button></li>
+                    <li>
+                        <h3 style="color: wheat;">Hi {{user.first_name}}</h3>
+                    </li>
                     {% else %}
                     <li><button type="submit"><a href="/signin">SignIn</a></button></li>
                     <li><button type="submit"><a href="/signup">SignUp</a></button></li>

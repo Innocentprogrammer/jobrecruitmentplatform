@@ -1,13 +1,21 @@
 {% include "header.html" %}
 
 <!-- ContactUs section starts  -->
-
+<style>
+    #map {
+        height: 60vh;
+        width: 35vw;
+        margin: 20px 20px;
+        border: 1px solid #ccc;
+    }
+</style>
 <section id="contact" class="contact">
     <h1 class="heading">Contact Us</h1>
     <div class="row">
-        <div class="image">
+        <!-- <div class="image">
             <img src="/static/contactus.jpg" alt="ContactUs">
-        </div>
+        </div> -->
+        <div id="map"></div>
         <div class="form-container">
             <form action="{% url 'saveform' %}" method="post">
                 {% csrf_token %}
@@ -20,6 +28,17 @@
         </div>
     </div>
 </section>
+<script>
+    const map = new maplibregl.Map({
+        container: 'map',
+        style: 'https://api.maptiler.com/maps/streets/style.json?key=h9C3K3ZG05AQ6o6W8IJw',
+        center: [79.39863633231312, 28.338368611981803], // Longitude, Latitude
+        zoom: 13
+    });
 
+    new maplibregl.Marker()
+        .setLngLat([79.39863633231312, 28.338368611981803]) // Marker at New Delhi
+        .addTo(map);
+</script>
 <!-- ContactUs section ends  -->
 {% include "footer.html" %}
